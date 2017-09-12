@@ -25,6 +25,10 @@ foreach($html_base->find('table tr') as $e){
     $t = str_replace('</div>',' ',$t);
     $t = trim($t);
 
+    if ($i%23==0) {
+      $t = trim(str_replace('compare-',' ',$f->first_child()->getAttribute("name")));
+      $line["id"] = $t;
+    }
     if ($i%23==1) {
       $line["cpu"] = $t;
     }
